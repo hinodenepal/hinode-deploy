@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Instagram, Facebook, Twitter, MapPin, Mail, Phone } from "lucide-react";
+import hinodeLogo from "@/assets/hinode-logo.svg";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6 group">
-              <img src="/src/assets/hinode-logo.svg" alt="Hinode Logo" className="w-8 h-8 text-[#FAF9F6] transition-transform duration-500 group-hover:rotate-45" />
+              <img src={hinodeLogo} alt="Hinode Logo" className="w-8 h-8 text-[#FAF9F6] transition-transform duration-500 group-hover:rotate-45" />
               <span className="text-xl font-medium tracking-widest text-[#FAF9F6]">
                 HINODE NEPAL
               </span>

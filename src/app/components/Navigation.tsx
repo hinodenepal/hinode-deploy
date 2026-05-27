@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import hinodeLogo from "@/assets/hinode-logo.svg";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,7 @@ export function Navigation() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="/src/assets/hinode-logo.svg" alt="Hinode Logo" className="w-6 h-6 text-[#8B2C24] transition-transform duration-500 group-hover:rotate-45" />
+            <img src={hinodeLogo} alt="Hinode Logo" className="w-6 h-6 text-[#8B2C24] transition-transform duration-500 group-hover:rotate-45" />
             <div className="flex flex-col">
               <span className={`text-lg font-medium tracking-widest ${isScrolled || location.pathname !== '/' ? 'text-[#2C2C2C]' : 'text-[#2C2C2C]'}`}>
                 HINODE NEPAL
@@ -87,7 +88,7 @@ export function Navigation() {
           >
             <div className="flex justify-between items-center mb-12">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/src/assets/hinode-logo.svg" alt="Hinode Logo" className="w-6 h-6 text-[#8B2C24]" />
+                <img src={hinodeLogo} alt="Hinode Logo" className="w-6 h-6 text-[#8B2C24]" />
                 <span className="text-lg font-medium tracking-widest text-[#2C2C2C]">
                   HINODE NEPAL
                 </span>
