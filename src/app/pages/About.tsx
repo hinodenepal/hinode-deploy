@@ -58,7 +58,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="bg-[#F4F1EC] p-12 md:p-16 rounded-sm text-center">
+        {/* <div className="bg-[#F4F1EC] p-12 md:p-16 rounded-sm text-center">
           <h3 className="text-2xl font-light text-[#2C2C2C] mb-6">Message from the Founder</h3>
           <div className="w-24 h-24 mx-auto rounded-full bg-[#E8E5DF] overflow-hidden mb-6">
              <img src="https://images.unsplash.com/photo-1522623349500-de37a56ea2a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMHRyYXZlbGVyfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Founder" className="w-full h-full object-cover" />
@@ -68,7 +68,7 @@ export function About() {
           </p>
           <span className="block text-sm text-[#2C2C2C] uppercase tracking-widest font-medium">Kenji Sato</span>
           <span className="text-xs text-[#8B2C24] uppercase tracking-wider">Founder & Managing Director</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
