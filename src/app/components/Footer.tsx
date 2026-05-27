@@ -48,7 +48,7 @@ export function Footer() {
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3 text-[#A39E99] text-sm">
                 <MapPin className="w-5 h-5 shrink-0" />
-                <span>Thamel, Kathmandu<br/>Bagmati Province, Nepal</span>
+                <span>Kathmandu<br/>Bagmati Province, Nepal</span>
               </li>
               <li className="flex items-center gap-3 text-[#A39E99] text-sm">
                 <Phone className="w-5 h-5 shrink-0" />

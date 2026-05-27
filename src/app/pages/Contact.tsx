@@ -24,7 +24,6 @@ export function Contact() {
                   <h3 className="text-sm tracking-widest uppercase text-[#2C2C2C] mb-2">Office Address</h3>
                   <p className="text-[#5A5A5A] font-light leading-relaxed">
                     Hinode Nepal Pvt. Ltd.<br/>
-                    Tridevi Marg, Thamel<br/>
                     Kathmandu 44600, Nepal
                   </p>
                 </div>
