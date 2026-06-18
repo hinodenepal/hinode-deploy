@@ -4,7 +4,7 @@ import { defaultLocale, isValidLocale } from "@/lib/i18n";
 
 const PUBLIC_PATHS = ["/tours", "/blog", "/about", "/inquiry", "/contact", "/destinations", "/testimonials"];
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Redirect /[locale]/hin-admin to /hin-admin
@@ -73,7 +73,8 @@ export async function middleware(req: NextRequest) {
   }
 
   // For everything else (the "root"), rewrite it to /ja/... so the [lang] folder matches it
-  return NextResponse.rewrite(new URL(`/ja${pathname}`, req.url));
+  const rewritePath = pathname === '/' ? '/ja' : `/ja${pathname}`;
+  return NextResponse.rewrite(new URL(rewritePath, req.url));
 
   return NextResponse.next();
 }
