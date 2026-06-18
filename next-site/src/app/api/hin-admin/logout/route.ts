@@ -6,3 +6,5 @@ export async function POST() {
   clearSessionCookie(response);
   return response;
 }
+
+// Triggering redeploy for Vercel
