@@ -46,6 +46,7 @@ export default function RichTextEditor({ value, onChange, placeholder, height = 
     <div className="border border-[#D1CCC5] rounded-sm overflow-hidden bg-white">
       <Editor
         tinymceScriptSrc="/tinymce/tinymce.min.js"
+        licenseKey="gpl"
         onInit={(evt, editor) => (editorRef.current = editor)}
         value={value}
         onEditorChange={(content) => onChange(content)}
@@ -71,7 +72,6 @@ export default function RichTextEditor({ value, onChange, placeholder, height = 
           skin: "oxide",
           content_css: "default",
           promotion: false,
-          license_key: "gpl",
         }}
       />
     </div>
