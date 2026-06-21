@@ -1,17 +1,17 @@
-<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-  <!-- Red Circle (Sun) -->
-  <circle cx="600" cy="280" r="280" fill="#DC143C"/>
+<svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red Sun -->
+  <circle cx="240" cy="160" r="150" fill="#DC143C"/>
 
-  <!-- White Mountains -->
-  <!-- Left Mountain -->
-  <polygon points="250,550 400,350 550,550" fill="white"/>
+  <!-- Dark Mountain Silhouettes -->
+  <polygon points="80,340 160,220 240,340" fill="#1a1a2e"/>
+  <polygon points="160,340 260,170 360,340" fill="#1a1a2e"/>
+  <polygon points="280,340 370,230 460,340" fill="#1a1a2e"/>
 
-  <!-- Center Mountain (tallest) -->
-  <polygon points="450,550 650,250 850,550" fill="white"/>
+  <!-- Mountain Snow Caps -->
+  <polygon points="160,220 185,250 135,250" fill="white" opacity="0.35"/>
+  <polygon points="260,170 290,210 230,210" fill="white" opacity="0.35"/>
+  <polygon points="370,230 395,258 345,258" fill="white" opacity="0.35"/>
 
-  <!-- Right Mountain -->
-  <polygon points="750,550 900,370 1050,550" fill="white"/>
-
-  <!-- Red Bar at Bottom -->
-  <rect x="100" y="650" width="1000" height="100" rx="50" fill="#DC143C"/>
+  <!-- Red Base Bar -->
+  <rect x="60" y="350" width="360" height="16" rx="8" fill="#DC143C"/>
 </svg>

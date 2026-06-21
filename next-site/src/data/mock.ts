@@ -19,7 +19,7 @@ export const TOURS = [
     season: "Spring / Autumn / Winter",
     difficulty: "Moderate",
     price: "¥520,000",
-    image: "https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmVra2luZyUyMG5lcGFsfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/photo-1518002054494.jpg",
     destination: "Annapurna Region",
     description: "A profound spiritual and physical journey into the heart of the Annapurna massif. Perfect for those seeking tranquility and majesty.",
   },
@@ -61,7 +61,7 @@ export const DESTINATIONS = [
     id: "pokhara",
     title: "Pokhara",
     jpTitle: "ポカラ",
-    image: "https://images.unsplash.com/photo-1610997686651-98492fd08108?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2toYXJhfGVufDF8fHx8MTc3OTg5OTY4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/photo-1610997686651.jpg",
     description: "A serene lakeside city offering spectacular views of the Annapurna range and a relaxed atmosphere.",
   },
   {
@@ -79,7 +79,7 @@ export const ARTICLES = [
     title: "ネパール訪問のベストシーズン",
     enTitle: "The Best Season to Visit Nepal",
     category: "Travel Tips",
-    image: "https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXBhbCUyMGxhbmRzY2FwZXxlbnwxfHx8fDE3Nzk4OTk2ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/photo-1518002054494.jpg",
     date: "May 25, 2026",
   },
   {

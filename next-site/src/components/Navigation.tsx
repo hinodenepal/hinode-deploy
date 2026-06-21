@@ -33,36 +33,35 @@ export function Navigation({ locale }: NavigationProps) {
   const navLinks =
     locale === "ja"
       ? [
-          { name: "ツアー", path: p("/tours") },
-          { name: "目的地", path: p("/destinations") },
-          { name: "ブログ", path: p("/blog") },
-          { name: "会社概要", path: p("/about") },
-        ]
+        { name: "ツアー", path: p("/tours") },
+        { name: "目的地", path: p("/destinations") },
+        { name: "ブログ", path: p("/blog") },
+        { name: "会社概要", path: p("/about") },
+      ]
       : [
-          { name: "Tours", path: p("/tours") },
-          { name: "Destinations", path: p("/destinations") },
-          { name: "Blogs", path: p("/blog") },
-          { name: "About", path: p("/about") },
-        ];
+        { name: "Tours", path: p("/tours") },
+        { name: "Destinations", path: p("/destinations") },
+        { name: "Blogs", path: p("/blog") },
+        { name: "About", path: p("/about") },
+      ];
 
   const inquireLabel = locale === "ja" ? "お問い合わせ" : "Inquire";
 
   return (
     <>
       <header
-        className={`absolute md:fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-[#FAF9F6]/95 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${isScrolled ? "shadow-md py-3" : "shadow-sm py-4"
+          }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href={p("/")} className="flex items-center gap-2 group">
+          <Link href={p("/")} className="flex items-center gap-3 group">
             <img
               src="/hinode-logo.svg"
               alt="Hinode Logo"
-              className="w-6 h-6 text-[#8B2C24] transition-transform duration-500 group-hover:rotate-45"
+              className="w-10 h-10 transition-transform duration-500 group-hover:scale-110"
             />
             <div className="flex flex-col">
-              <span className="text-lg font-medium tracking-widest text-[#2C2C2C]">
+              <span className="text-lg font-semibold tracking-[0.15em] text-[#2C2C2C]">
                 HINODE NEPAL
               </span>
             </div>
@@ -74,17 +73,16 @@ export function Navigation({ locale }: NavigationProps) {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`text-sm tracking-widest uppercase hover:text-[#8B2C24] transition-colors ${
-                  pathname.startsWith(link.path) ? "text-[#8B2C24]" : "text-[#5A5A5A]"
-                }`}
+                className={`text-sm tracking-widest uppercase hover:text-[#8B2C24] transition-colors ${pathname.startsWith(link.path) ? "text-[#8B2C24] font-medium" : "text-[#5A5A5A]"
+                  }`}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="w-px h-4 bg-[#D1CCC5]"></div>
+            <div className="w-px h-5 bg-[#D1CCC5]"></div>
             <Link
               href={p("/inquiry")}
-              className="px-6 py-2 border border-[#2C2C2C] text-[#2C2C2C] text-sm tracking-widest uppercase hover:bg-[#2C2C2C] hover:text-[#FAF9F6] transition-colors rounded-sm"
+              className="px-6 py-2.5 bg-[#6B6B6B] text-white text-sm tracking-widest uppercase hover:bg-[#2C2C2C] transition-colors duration-300 rounded-sm"
             >
               {inquireLabel}
             </Link>
@@ -109,12 +107,12 @@ export function Navigation({ locale }: NavigationProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[60] bg-[#FAF9F6] p-6 flex flex-col"
+            className="fixed inset-0 z-[60] bg-white p-6 flex flex-col"
           >
             <div className="flex justify-between items-center mb-12">
-              <Link href={p("/")} className="flex items-center gap-2">
-                <img src="/hinode-logo.svg" alt="Hinode Logo" className="w-6 h-6 text-[#8B2C24]" />
-                <span className="text-lg font-medium tracking-widest text-[#2C2C2C]">
+              <Link href={p("/")} className="flex items-center gap-3">
+                <img src="/hinode-logo.svg" alt="Hinode Logo" className="w-10 h-10" />
+                <span className="text-lg font-semibold tracking-[0.15em] text-[#2C2C2C]">
                   HINODE NEPAL
                 </span>
               </Link>
@@ -137,7 +135,7 @@ export function Navigation({ locale }: NavigationProps) {
               <div className="w-12 h-px bg-[#D1CCC5] my-6"></div>
               <Link
                 href={p("/inquiry")}
-                className="px-8 py-3 bg-[#2C2C2C] text-[#FAF9F6] text-sm tracking-widest uppercase rounded-sm"
+                className="px-8 py-3 bg-[#6B6B6B] text-white text-sm tracking-widest uppercase rounded-sm hover:bg-[#2C2C2C] transition-colors"
               >
                 {inquireLabel}
               </Link>

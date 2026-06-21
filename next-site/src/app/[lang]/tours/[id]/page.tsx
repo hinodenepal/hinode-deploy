@@ -137,7 +137,7 @@ export default async function TourDetailPage({ params }: PageProps) {
     <div className="w-full bg-[#FAF9F6]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       {/* Cinematic Hero */}
-      <section className="relative h-[80vh] min-h-[600px] w-full mt-[-6rem]">
+      <section className="relative h-[80vh] min-h-[600px] w-full">
         <Image src={tour.image} alt={`${tour.enTitle} - scenic view of ${tour.destination} in Nepal`} fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-black/20 to-black/40" />
         <div className="absolute bottom-0 left-0 w-full p-6 md:p-16">

@@ -99,8 +99,8 @@ export function Footer({ locale }: FooterProps) {
             © {new Date().getFullYear()} Hinode Nepal. {isJa ? "無断転載禁止。" : "All rights reserved."}
           </p>
           <div className="flex gap-6 text-xs text-[#A39E99]">
-            <a href="#" className="hover:text-[#FAF9F6] transition-colors">{isJa ? "プライバシーポリシー" : "Privacy Policy"}</a>
-            <a href="#" className="hover:text-[#FAF9F6] transition-colors">{isJa ? "利用規約" : "Terms of Service"}</a>
+            <Link href={p("/privacy")} className="hover:text-[#FAF9F6] transition-colors">{isJa ? "プライバシーポリシー" : "Privacy Policy"}</Link>
+            <Link href={p("/terms")} className="hover:text-[#FAF9F6] transition-colors">{isJa ? "利用規約" : "Terms of Service"}</Link>
           </div>
         </div>
       </div>

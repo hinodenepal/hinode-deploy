@@ -11,20 +11,21 @@ export function HeroSection({ locale }: { locale: Locale }) {
   const p = (path: string) => locale === "ja" ? (path === "/" ? "/" : path) : `/en${path === "/" ? "" : path}`;
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full mt-[-6rem] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[85vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1697012511676-674067ec0aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaW1hbGF5YXMlMjBzdW5yaXNlfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+          src="/images/hero-himalaya.jpg"
           alt={isJa ? "ネパール・ヒマラヤの黄金の夜明け" : "Golden sunrise over the Himalayan mountains in Nepal"}
           fill
           className="object-cover scale-105 transform hover:scale-100 transition-transform duration-[10s]"
           priority
+          loading="eager"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12 text-center text-white mt-16">
+      <div className="container relative z-10 mx-auto px-6 md:px-12 text-center text-white">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

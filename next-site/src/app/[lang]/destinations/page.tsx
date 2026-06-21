@@ -73,6 +73,7 @@ export default async function DestinationsPage({ params }: PageProps) {
                       src={dest.image} alt={`${dest.enTitle} — ${dest.title}`}
                       fill className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
                   </Link>

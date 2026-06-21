@@ -120,10 +120,10 @@ export default function ToursPage({ params }: PageProps) {
   return (
     <div className="w-full bg-[#FAF9F6]">
       {/* Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] w-full flex items-center justify-center overflow-hidden mt-[-6rem]">
+      <section className="relative h-[50vh] min-h-[400px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmVra2luZyUyMG5lcGFsfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+            src="/images/photo-1518002054494.jpg"
             alt="Trekkers hiking through the scenic Himalayan trails in Nepal"
             fill
             className="object-cover"
@@ -164,82 +164,132 @@ export default function ToursPage({ params }: PageProps) {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Sidebar Filters */}
           <aside className="w-full lg:w-1/4">
-            <div className="sticky top-32">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-2 text-[#2C2C2C]">
-                  <SlidersHorizontal className="w-5 h-5" />
-                  <span className="text-sm tracking-widest uppercase font-medium">
-                    {isJa ? "フィルター" : "Filter"}
-                  </span>
-                </div>
-                {hasActiveFilters && (
-                  <button 
-                    onClick={clearFilters}
-                    className="text-xs text-[#8B2C24] uppercase tracking-wider hover:underline flex items-center gap-1"
-                  >
-                    <X className="w-3 h-3" />
-                    {isJa ? "クリア" : "Clear All"}
-                  </button>
-                )}
-              </div>
-
-              <div className="space-y-8">
-                {/* Search Bar */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder={isJa ? "キーワード検索..." : "Search tours..."}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full border-b border-[#D1CCC5] py-2 pl-8 bg-transparent focus:outline-none focus:border-[#8B2C24] text-sm text-[#2C2C2C]"
-                  />
-                  <Search className="w-4 h-4 absolute left-0 top-1/2 -translate-y-1/2 text-[#5A5A5A]" />
+            <div className="sticky top-28">
+              <div className="bg-white border border-[#E8E5DF] rounded-sm overflow-hidden">
+                {/* Filter Header */}
+                <div className="flex items-center justify-between px-6 py-5 border-b border-[#E8E5DF]">
+                  <div className="flex items-center gap-2.5 text-[#2C2C2C]">
+                    <SlidersHorizontal className="w-4 h-4" />
+                    <span className="text-xs tracking-[0.2em] uppercase font-semibold">
+                      {isJa ? "フィルター" : "Refine Results"}
+                    </span>
+                  </div>
+                  {hasActiveFilters && (
+                    <button 
+                      onClick={clearFilters}
+                      className="text-[10px] text-[#8B2C24] uppercase tracking-[0.15em] hover:underline flex items-center gap-1 transition-colors"
+                    >
+                      <X className="w-3 h-3" />
+                      {isJa ? "クリア" : "Clear"}
+                    </button>
+                  )}
                 </div>
 
-                <div>
-                  <h4 className="text-sm uppercase tracking-wider text-[#5A5A5A] mb-4">
+                {/* Search */}
+                <div className="px-6 py-5 border-b border-[#E8E5DF]">
+                  <div className="relative">
+                    <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#A39E99]" />
+                    <input
+                      type="text"
+                      placeholder={isJa ? "キーワード検索..." : "Search tours..."}
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full bg-[#FAF9F6] border border-[#E8E5DF] rounded-sm py-2.5 pl-10 pr-4 text-sm text-[#2C2C2C] placeholder:text-[#A39E99] focus:outline-none focus:border-[#8B2C24] focus:ring-1 focus:ring-[#8B2C24]/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Duration Filter */}
+                <div className="px-6 py-5 border-b border-[#E8E5DF]">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#A39E99] font-semibold mb-4">
                     {isJa ? "日数" : "Duration"}
                   </h4>
                   <div className="flex flex-col gap-3">
-                    {["1-5 Days", "6-10 Days", "11+ Days"].map((dur) => (
-                      <label key={dur} className="flex items-center gap-3 cursor-pointer group">
-                        <input 
-                          type="checkbox" 
-                          checked={selectedDurations.includes(dur)}
-                          onChange={(e) => {
-                            if (e.target.checked) setSelectedDurations([...selectedDurations, dur]);
-                            else setSelectedDurations(selectedDurations.filter(d => d !== dur));
-                          }}
-                          className="w-4 h-4 accent-[#8B2C24] bg-transparent border-[#D1CCC5] rounded" 
-                        />
-                        <span className="text-[#2C2C2C] text-sm group-hover:text-[#8B2C24] transition-colors">{dur}</span>
-                      </label>
-                    ))}
+                    {["1-5 Days", "6-10 Days", "11+ Days"].map((dur) => {
+                      const isChecked = selectedDurations.includes(dur);
+                      return (
+                        <label key={dur} className="flex items-center gap-3 cursor-pointer group">
+                          <button
+                            type="button"
+                            role="checkbox"
+                            aria-checked={isChecked}
+                            onClick={() => {
+                              if (isChecked) setSelectedDurations(selectedDurations.filter(d => d !== dur));
+                              else setSelectedDurations([...selectedDurations, dur]);
+                            }}
+                            className={`w-[18px] h-[18px] rounded-[3px] border-2 flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                              isChecked
+                                ? "bg-[#8B2C24] border-[#8B2C24]"
+                                : "border-[#D1CCC5] group-hover:border-[#8B2C24]/50"
+                            }`}
+                          >
+                            {isChecked && (
+                              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            )}
+                          </button>
+                          <span className={`text-sm transition-colors ${
+                            isChecked ? "text-[#2C2C2C] font-medium" : "text-[#5A5A5A] group-hover:text-[#2C2C2C]"
+                          }`}>
+                            {dur}
+                          </span>
+                        </label>
+                      );
+                    })}
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-sm uppercase tracking-wider text-[#5A5A5A] mb-4">
+                {/* Difficulty Filter */}
+                <div className="px-6 py-5">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-[#A39E99] font-semibold mb-4">
                     {isJa ? "難易度" : "Difficulty"}
                   </h4>
                   <div className="flex flex-col gap-3">
-                    {(isJa ? ["初級", "中級", "上級"] : ["Easy", "Moderate", "Advanced"]).map((diff) => (
-                      <label key={diff} className="flex items-center gap-3 cursor-pointer group">
-                        <input 
-                          type="checkbox" 
-                          checked={selectedDifficulties.includes(diff)}
-                          onChange={(e) => {
-                            if (e.target.checked) setSelectedDifficulties([...selectedDifficulties, diff]);
-                            else setSelectedDifficulties(selectedDifficulties.filter(d => d !== diff));
-                          }}
-                          className="w-4 h-4 accent-[#8B2C24] bg-transparent border-[#D1CCC5] rounded" 
-                        />
-                        <span className="text-[#2C2C2C] text-sm group-hover:text-[#8B2C24] transition-colors">{diff}</span>
-                      </label>
-                    ))}
+                    {(isJa ? ["初級", "中級", "上級"] : ["Easy", "Moderate", "Advanced"]).map((diff) => {
+                      const isChecked = selectedDifficulties.includes(diff);
+                      return (
+                        <label key={diff} className="flex items-center gap-3 cursor-pointer group">
+                          <button
+                            type="button"
+                            role="checkbox"
+                            aria-checked={isChecked}
+                            onClick={() => {
+                              if (isChecked) setSelectedDifficulties(selectedDifficulties.filter(d => d !== diff));
+                              else setSelectedDifficulties([...selectedDifficulties, diff]);
+                            }}
+                            className={`w-[18px] h-[18px] rounded-[3px] border-2 flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                              isChecked
+                                ? "bg-[#8B2C24] border-[#8B2C24]"
+                                : "border-[#D1CCC5] group-hover:border-[#8B2C24]/50"
+                            }`}
+                          >
+                            {isChecked && (
+                              <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            )}
+                          </button>
+                          <span className={`text-sm transition-colors ${
+                            isChecked ? "text-[#2C2C2C] font-medium" : "text-[#5A5A5A] group-hover:text-[#2C2C2C]"
+                          }`}>
+                            {diff}
+                          </span>
+                        </label>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
+
+              {/* Active filter count indicator */}
+              {hasActiveFilters && (
+                <div className="mt-4 text-center">
+                  <span className="text-xs text-[#5A5A5A] tracking-wider">
+                    {filteredTours.length} {isJa ? "件のツアー" : filteredTours.length === 1 ? "tour found" : "tours found"}
+                  </span>
+                </div>
+              )}
             </div>
           </aside>
 

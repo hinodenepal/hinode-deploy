@@ -28,7 +28,7 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <div className="w-full bg-[#FAF9F6]">
-      <section className="relative h-[60vh] min-h-[500px] w-full mt-[-6rem]">
+      <section className="relative h-[60vh] min-h-[500px] w-full">
         <Image src="https://images.unsplash.com/photo-1522623349500-de37a56ea2a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMHRyYXZlbGVyfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Japanese traveler enjoying the scenic beauty of Nepal's Himalayan landscape" fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
