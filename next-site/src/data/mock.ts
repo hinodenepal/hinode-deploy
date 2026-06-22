@@ -69,7 +69,7 @@ export const DESTINATIONS = [
     title: "Everest Region",
     jpTitle: "エベレスト地方",
     image: "https://images.unsplash.com/photo-1697012511676-674067ec0aa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaW1hbGF5YXMlMjBzdW5yaXNlfGVufDF8fHx8MTc3OTg5OTY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    description: "Home to the world's highest peaks, remote Sherpa villages, and ancient Buddhist monasteries.",
+    description: "Home to the world's highest peaks, remote Sherpa villages, ancient Buddhist monasteries and pristine landscapes.",
   }
 ];
 
