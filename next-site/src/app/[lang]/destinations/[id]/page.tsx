@@ -7,7 +7,6 @@ import Tour from "@/lib/models/Tour";
 import type { Metadata } from "next";
 import { isValidLocale, type Locale } from "@/lib/i18n";
 import { MapPin, Clock, Star, ChevronRight, ArrowLeft, Calendar } from "lucide-react";
-import DOMPurify from "isomorphic-dompurify";
 
 export const dynamic = "force-dynamic";
 
@@ -17,8 +16,13 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang, id } = await params;
-  await dbConnect();
-  const dest = await Destination.findOne({ slug: id }).lean() as any;
+  let dest;
+  try {
+    await dbConnect();
+    dest = await Destination.findOne({ slug: id }).lean() as any;
+  } catch (error) {
+    console.error("Failed to fetch destination for metadata:", error);
+  }
   if (!dest) return {};
   const isJa = lang === "ja";
   return {
@@ -34,11 +38,16 @@ export default async function DestinationDetailPage({ params }: PageProps) {
   const isJa = locale === "ja";
   const p = (path: string) => locale === "ja" ? path : `/en${path}`;
 
-  await dbConnect();
-  const [dest, tours] = await Promise.all([
-    Destination.findOne({ slug: id }).lean(),
-    Tour.find({ destination: id }).sort({ createdAt: -1 }).lean(),
-  ]);
+  let dest, tours: any[] = [];
+  try {
+    await dbConnect();
+    [dest, tours] = await Promise.all([
+      Destination.findOne({ slug: id }).lean(),
+      Tour.find({ destination: id }).sort({ createdAt: -1 }).lean(),
+    ]);
+  } catch (error) {
+    console.error("Failed to fetch destination or tours:", error);
+  }
 
   if (!dest) notFound();
   const d = dest as any;
@@ -102,7 +111,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             <div
               className="prose prose-lg max-w-none text-[#5A5A5A] font-light leading-relaxed [&_h2]:text-[#2C2C2C] [&_h2]:font-light [&_h3]:text-[#2C2C2C] [&_h3]:font-light [&_strong]:text-[#2C2C2C] [&_strong]:font-medium"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(isJa ? d.description : (d.enDescription || d.description)),
+                __html: isJa ? d.description : (d.enDescription || d.description),
               }}
             />
           </div>

@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import dbConnect from "@/lib/mongodb";
 import Tour from "@/lib/models/Tour";
 import { isValidLocale, type Locale } from "@/lib/i18n";
-import DOMPurify from "isomorphic-dompurify";
 
 interface ItineraryDay {
   dayNumber: number;
@@ -106,8 +105,13 @@ export default async function TourDetailPage({ params }: PageProps) {
   const tour = await getTour(id);
   if (!tour) notFound();
 
-  await dbConnect();
-  const relatedTours = await Tour.find({ slug: { $ne: id } }).sort({ createdAt: -1 }).limit(3).lean() as any[];
+  let relatedTours: any[] = [];
+  try {
+    await dbConnect();
+    relatedTours = (await Tour.find({ slug: { $ne: id } }).sort({ createdAt: -1 }).limit(3).lean()) as any[] || [];
+  } catch (error) {
+    console.error("Failed to fetch related tours:", error);
+  }
 
   const tourSlug = tour.slug || tour.id;
   const hasItinerary = tour.itinerary && tour.itinerary.length > 0;
@@ -193,7 +197,7 @@ export default async function TourDetailPage({ params }: PageProps) {
               <h3 id="overview-heading" className="text-2xl font-light text-[#2C2C2C] mb-6">{isJa ? "概要" : "Overview"}</h3>
               <div 
                 className="prose prose-lg max-w-none text-[#5A5A5A] font-light leading-relaxed text-justify [&_p]:mb-6"
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tour.description) }}
+                dangerouslySetInnerHTML={{ __html: tour.description }}
               />
             </section>
 

@@ -5,7 +5,6 @@ import Destination from "@/lib/models/Destination";
 import type { Metadata } from "next";
 import { isValidLocale, type Locale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
-import DOMPurify from "isomorphic-dompurify";
 
 export const dynamic = "force-dynamic";
 
@@ -32,8 +31,13 @@ export default async function DestinationsPage({ params }: PageProps) {
   const isJa = locale === "ja";
   const p = (path: string) => locale === "ja" ? path : `/en${path}`;
 
-  await dbConnect();
-  const destinations = await Destination.find({}).sort({ createdAt: 1 }).lean();
+  let destinations: any[] = [];
+  try {
+    await dbConnect();
+    destinations = (await Destination.find({}).sort({ createdAt: 1 }).lean()) || [];
+  } catch (error) {
+    console.error("Failed to fetch destinations:", error);
+  }
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -83,7 +87,7 @@ export default async function DestinationsPage({ params }: PageProps) {
                   <h2 className="text-4xl md:text-5xl font-light text-[#2C2C2C] mb-8">{isJa ? dest.title : dest.enTitle}</h2>
                   <div
                     className="text-[#5A5A5A] font-light leading-relaxed mb-8 text-lg line-clamp-3 prose prose-sm max-w-none"
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(isJa ? dest.description : (dest.enDescription || dest.description)) }}
+                    dangerouslySetInnerHTML={{ __html: isJa ? dest.description : (dest.enDescription || dest.description) }}
                   />
                   <Link href={p(`/destinations/${dest.slug}`)}
                     className="inline-block px-8 py-4 border border-[#2C2C2C] text-[#2C2C2C] text-sm tracking-widest uppercase hover:bg-[#2C2C2C] hover:text-[#FAF9F6] transition-colors rounded-sm w-max">

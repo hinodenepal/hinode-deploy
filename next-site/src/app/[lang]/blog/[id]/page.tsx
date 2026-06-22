@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import Tour from "@/lib/models/Tour";
 import type { Metadata } from "next";
 import { isValidLocale, type Locale } from "@/lib/i18n";
-import DOMPurify from "isomorphic-dompurify";
 
 export const dynamic = "force-dynamic";
 
@@ -16,8 +15,13 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id, lang } = await params;
-  await dbConnect();
-  const post = await Post.findOne({ slug: id });
+  let post;
+  try {
+    await dbConnect();
+    post = await Post.findOne({ slug: id });
+  } catch (error) {
+    console.error("Failed to fetch post for metadata:", error);
+  }
   if (!post) return { title: "Article Not Found | Hinode Nepal" };
 
   const isJa = lang === "ja";
@@ -37,11 +41,16 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const isJa = locale === "ja";
   const p = (path: string) => locale === "ja" ? (path === "/" ? "/" : path) : `/en${path === "/" ? "" : path}`;
 
-  await dbConnect();
-  const post = await Post.findOne({ slug: id });
-  if (!post) notFound();
+  let post, relatedTours: any[] = [];
+  try {
+    await dbConnect();
+    post = await Post.findOne({ slug: id });
+    relatedTours = (await Tour.find({}).sort({ createdAt: -1 }).limit(3).lean()) as any[] || [];
+  } catch (error) {
+    console.error("Failed to fetch post or related tours:", error);
+  }
 
-  const relatedTours = await Tour.find({}).sort({ createdAt: -1 }).limit(3).lean() as any[];
+  if (!post) notFound();
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -99,7 +108,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
         <article
           className="prose prose-lg max-w-none text-[#5A5A5A] font-light leading-relaxed mb-24 prose-headings:text-[#2C2C2C] prose-headings:font-light prose-a:text-[#8B2C24]"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(isJa ? post.content : (post.enContent || post.content)) }}
+          dangerouslySetInnerHTML={{ __html: isJa ? post.content : (post.enContent || post.content) }}
         />
 
         <div className="border-t border-[#D1CCC5] py-12 flex flex-col md:flex-row items-center justify-between gap-6">
