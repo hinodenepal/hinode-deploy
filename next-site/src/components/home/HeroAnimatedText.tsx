@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { Locale } from "@/lib/i18n";
 
-export function HeroAnimatedText({ isJa, p }: { isJa: boolean; p: (path: string) => string }) {
+export function HeroAnimatedText({ locale }: { locale: Locale }) {
+  const isJa = locale === "ja";
+  const p = (path: string) => locale === "ja" ? (path === "/" ? "/" : path) : `/en${path === "/" ? "" : path}`;
+
   return (
     <div className="container relative z-10 mx-auto px-6 md:px-12 text-center text-white">
       <motion.p

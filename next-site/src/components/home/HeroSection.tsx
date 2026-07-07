@@ -20,8 +20,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
-
-      <HeroAnimatedText isJa={isJa} p={p} />
+      <HeroAnimatedText locale={locale} />
     </section>
   );
 }
