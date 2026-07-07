@@ -19,7 +19,7 @@ export function HeroSection({ locale }: { locale: Locale }) {
           fill
           className="object-cover scale-105 transform hover:scale-100 transition-transform duration-[10s]"
           priority
-          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/30" />
