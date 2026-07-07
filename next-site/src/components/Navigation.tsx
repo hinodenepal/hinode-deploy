@@ -50,7 +50,7 @@ export function Navigation({ locale }: NavigationProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${isScrolled ? "shadow-md py-3" : "shadow-sm py-4"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
           }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -61,7 +61,7 @@ export function Navigation({ locale }: NavigationProps) {
               className="w-10 h-10 transition-transform duration-500 group-hover:scale-110"
             />
             <div className="flex flex-col">
-              <span className="text-lg font-semibold tracking-[0.15em] text-[#2C2C2C]">
+              <span className={`text-lg font-semibold tracking-[0.15em] transition-colors ${isScrolled ? "text-[#2C2C2C]" : "text-white"}`}>
                 HINODE NEPAL
               </span>
             </div>
@@ -73,7 +73,9 @@ export function Navigation({ locale }: NavigationProps) {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`text-sm tracking-widest uppercase hover:text-[#8B2C24] transition-colors ${pathname.startsWith(link.path) ? "text-[#8B2C24] font-medium" : "text-[#5A5A5A]"
+                className={`text-sm tracking-widest uppercase transition-colors ${pathname.startsWith(link.path)
+                  ? `font-medium ${isScrolled ? "text-[#8B2C24]" : "text-white"}`
+                  : `${isScrolled ? "text-[#5A5A5A] hover:text-[#8B2C24]" : "text-white/90 hover:text-white"}`
                   }`}
               >
                 {link.name}
@@ -82,7 +84,10 @@ export function Navigation({ locale }: NavigationProps) {
             <div className="w-px h-5 bg-[#D1CCC5]"></div>
             <Link
               href={p("/inquiry")}
-              className="px-6 py-2.5 bg-[#6B6B6B] text-white text-sm tracking-widest uppercase hover:bg-[#2C2C2C] transition-colors duration-300 rounded-sm"
+              className={`px-6 py-2.5 text-sm tracking-widest uppercase transition-colors duration-300 rounded-sm ${isScrolled
+                ? "bg-[#6B6B6B] text-white hover:bg-[#2C2C2C]"
+                : "bg-white/20 backdrop-blur-sm text-white hover:bg-white hover:text-[#2C2C2C] border border-white/30"
+                }`}
             >
               {inquireLabel}
             </Link>
@@ -91,7 +96,7 @@ export function Navigation({ locale }: NavigationProps) {
 
           {/* Mobile Nav Toggle */}
           <button
-            className="md:hidden text-[#2C2C2C]"
+            className={`md:hidden ${isScrolled ? "text-[#2C2C2C]" : "text-white"}`}
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Toggle menu"
           >

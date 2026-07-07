@@ -50,9 +50,9 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
+            <h2 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
               {isJa ? "旅のプラン" : "Journeys"}
-            </h4>
+            </h2>
             <ul className="flex flex-col gap-3">
               <li><Link href={p("/tours")} className="text-[#A39E99] hover:text-[#FAF9F6] transition-colors text-sm">{isJa ? "全ツアー" : "All Tours"}</Link></li>
               <li><Link href={p("/tours/everest-base-camp-luxury")} className="text-[#A39E99] hover:text-[#FAF9F6] transition-colors text-sm">{isJa ? "エベレスト・ラグジュアリー" : "Everest Luxury Trek"}</Link></li>
@@ -62,9 +62,9 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
+            <h2 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
               {isJa ? "会社情報" : "Company"}
-            </h4>
+            </h2>
             <ul className="flex flex-col gap-3">
               <li><Link href={p("/about")} className="text-[#A39E99] hover:text-[#FAF9F6] transition-colors text-sm">{isJa ? "会社概要" : "About Us"}</Link></li>
               <li><Link href={p("/testimonials")} className="text-[#A39E99] hover:text-[#FAF9F6] transition-colors text-sm">{isJa ? "お客様の声" : "Testimonials"}</Link></li>
@@ -74,9 +74,9 @@ export function Footer({ locale }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
+            <h2 className="text-sm tracking-widest uppercase mb-6 text-[#D1CCC5]">
               {isJa ? "連絡先" : "Contact"}
-            </h4>
+            </h2>
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3 text-[#A39E99] text-sm">
                 <MapPin className="w-5 h-5 shrink-0" />
