@@ -1,0 +1,45 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+export function HeroAnimatedText({ isJa, p }: { isJa: boolean; p: (path: string) => string }) {
+  return (
+    <div className="container relative z-10 mx-auto px-6 md:px-12 text-center text-white">
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-sm md:text-base tracking-[0.3em] uppercase mb-6 text-white/90"
+      >
+        {isJa ? "ヒマラヤの高級旅行" : "Curated Luxury in the Himalayas"}
+      </motion.p>
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight tracking-wide text-white"
+      >
+        {isJa ? (
+          <>魂を揺さぶる<br />ネパールの旅へ</>
+        ) : (
+          <>A Journey That<br />Moves the Soul</>
+        )}
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <Link
+          href={p("/tours")}
+          className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase text-white hover:text-[#2C2C2C]"
+        >
+          {isJa ? "旅を発見する" : "Discover Journeys"}{" "}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </motion.div>
+    </div>
+  );
+}

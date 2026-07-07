@@ -29,18 +29,21 @@ const EXTENSION_CLEANUP_SCRIPT = `
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "fallback",
 });
 
 const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-cormorant",
+  display: "fallback",
 });
 
 const shippori = Shippori_Mincho({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"], // Shippori Mincho supports Japanese internally, we subset latin for loading
   variable: "--font-shippori",
+  display: "fallback",
 });
 
 export const metadata: Metadata = {
