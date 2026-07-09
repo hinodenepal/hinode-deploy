@@ -25,6 +25,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: '/review/john-doe', destination: '/about', permanent: true },
+      { source: '/homeslider', destination: '/', permanent: true },
+      { source: '/flash', destination: '/', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
