@@ -18,9 +18,14 @@ export function Navigation({ locale }: NavigationProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const firstSection = document.querySelector("main section");
+      const heroHeight = firstSection ? firstSection.clientHeight : 20;
+      // 80 is roughly the height of the navbar
+      setIsScrolled(window.scrollY > (heroHeight > 100 ? heroHeight - 80 : 20));
     };
     window.addEventListener("scroll", handleScroll);
+    // Initialize state on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
