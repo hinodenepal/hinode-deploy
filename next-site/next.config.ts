@@ -29,7 +29,11 @@ const nextConfig: NextConfig = {
     return [
       { source: '/review/john-doe', destination: '/about', permanent: true },
       { source: '/homeslider', destination: '/', permanent: true },
+      { source: '/homeslider/plan-your-trip', destination: '/', permanent: true },
+      { source: '/homeslider/plan-your-trip/', destination: '/', permanent: true },
       { source: '/flash', destination: '/', permanent: true },
+      { source: '/:lang/blog/ネパールビザ取得ガイド：必要書類と手続き方法', destination: '/:lang/blog/nepal-visa-guide', permanent: true },
+      { source: '/blog/ネパールビザ取得ガイド：必要書類と手続き方法', destination: '/blog/nepal-visa-guide', permanent: true },
     ];
   },
 };

@@ -44,6 +44,18 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning className={`${inter.variable} ${cormorant.variable} ${shippori.variable} h-full antialiased`}>
+      <head>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-5NK52DGWL7" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-5NK52DGWL7');
+          `}
+        </Script>
+      </head>
       <body suppressHydrationWarning className="min-h-screen bg-[#FAF9F6] text-[#2C2C2C] font-sans antialiased selection:bg-[#8B2C24] selection:text-white">
 
         {children}

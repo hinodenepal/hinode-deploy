@@ -93,9 +93,13 @@ export default function ContactPage({ params }: PageProps) {
             <div className="bg-[#F4F1EC] p-8 rounded-sm">
                <h3 className="text-sm tracking-widest uppercase text-[#2C2C2C] mb-4 font-medium">{isJa ? "クイックコンタクト" : "Quick Connect"}</h3>
                <p className="text-[#5A5A5A] font-light text-sm mb-6">{isJa ? "即時のサポートが必要な場合は、LINEまたはWhatsApp経由でお問い合わせください。" : "Reach out to us instantly via LINE or WhatsApp for immediate assistance."}</p>
-               <div className="flex gap-4">
-                 <button className="px-6 py-3 bg-[#00B900] text-white text-xs tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity">LINE</button>
-                 <button className="px-6 py-3 bg-[#25D366] text-white text-xs tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity">WhatsApp</button>
+               <div className="flex gap-4 flex-col sm:flex-row">
+                 <a href="https://line.me/ti/p/~+9779851146179" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-[#00B900] text-white text-xs tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                   LINE: +977 985-1146179
+                 </a>
+                 <a href="https://wa.me/9779851146179" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-[#25D366] text-white text-xs tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                   WhatsApp: +977 985-1146179
+                 </a>
                </div>
             </div>
           </div>
