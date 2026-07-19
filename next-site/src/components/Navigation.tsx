@@ -24,8 +24,7 @@ export function Navigation({ locale }: NavigationProps) {
         return;
       }
       const heroHeight = firstSection.clientHeight;
-      // 80 is roughly the height of the navbar
-      setIsScrolled(window.scrollY > (heroHeight > 100 ? heroHeight - 80 : 20));
+      setIsScrolled(window.scrollY >= (heroHeight > 100 ? heroHeight : 20));
     };
     window.addEventListener("scroll", handleScroll);
     // Initialize state on mount

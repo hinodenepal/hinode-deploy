@@ -90,7 +90,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             </h1>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Breadcrumb */}
       <div className="bg-white border-b border-[#E8E5DF]">
