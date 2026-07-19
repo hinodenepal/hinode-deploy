@@ -19,7 +19,11 @@ export function Navigation({ locale }: NavigationProps) {
   useEffect(() => {
     const handleScroll = () => {
       const firstSection = document.querySelector("main section");
-      const heroHeight = firstSection ? firstSection.clientHeight : 20;
+      if (!firstSection) {
+        setIsScrolled(true);
+        return;
+      }
+      const heroHeight = firstSection.clientHeight;
       // 80 is roughly the height of the navbar
       setIsScrolled(window.scrollY > (heroHeight > 100 ? heroHeight - 80 : 20));
     };

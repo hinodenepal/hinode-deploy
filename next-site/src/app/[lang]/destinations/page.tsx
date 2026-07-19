@@ -52,7 +52,7 @@ export default async function DestinationsPage({ params }: PageProps) {
   return (
     <div className="w-full bg-[#FAF9F6]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
-      <div className="container mx-auto px-6 md:px-12 py-16 md:py-24">
+      <div className="container mx-auto px-6 md:px-12 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="max-w-3xl mx-auto text-center mb-24">
           <span className="text-[#8B2C24] text-xs tracking-[0.2em] uppercase mb-4 block">Explore Nepal</span>
           <h1 className="text-4xl md:text-5xl font-light text-[#2C2C2C] mb-6">{isJa ? "目的地を探す" : "Destinations"}</h1>

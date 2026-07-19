@@ -90,7 +90,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     <div className="w-full bg-[#FAF9F6]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <div className="container mx-auto px-6 md:px-12 py-16 md:py-24 max-w-4xl">
+      <div className="container mx-auto px-6 md:px-12 pt-32 pb-16 md:pt-40 md:pb-24 max-w-4xl">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 text-xs tracking-wider text-[#8B2C24] mb-6 uppercase font-semibold">
             <span>{post.category}</span>

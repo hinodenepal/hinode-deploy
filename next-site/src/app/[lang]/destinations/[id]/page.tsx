@@ -65,7 +65,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
     <div className="w-full bg-[#FAF9F6]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(destinationSchema) }} />
       {/* Hero */}
-      <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <Image
           src={d.image}
           alt={isJa ? d.title : d.enTitle}

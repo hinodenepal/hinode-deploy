@@ -64,7 +64,7 @@ export default function InquiryPage({ params }: PageProps) {
 
   return (
     <div className="w-full bg-[#FAF9F6]">
-      <div className="container mx-auto px-6 md:px-12 py-16 md:py-24 max-w-4xl">
+      <div className="container mx-auto px-6 md:px-12 pt-32 pb-16 md:pt-40 md:pb-24 max-w-4xl">
         <div className="text-center mb-16">
           <span className="text-[#8B2C24] text-xs tracking-[0.2em] uppercase mb-4 block font-semibold">{isJa ? "旅を計画する" : "Plan Your Journey"}</span>
           <h1 className="text-4xl md:text-5xl font-light text-[#2C2C2C] mb-6">{isJa ? "お問い合わせ・ご相談" : "Inquire Now"}</h1>

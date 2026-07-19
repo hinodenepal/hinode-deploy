@@ -73,7 +73,7 @@ export default async function BlogListingPage({ params }: PageProps) {
   return (
     <div className="w-full bg-[#FAF9F6]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
-      <div className="container mx-auto px-6 md:px-12 py-16 md:py-24">
+      <div className="container mx-auto px-6 md:px-12 pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="text-center mb-24">
           <span className="text-[#8B2C24] text-xs tracking-[0.2em] uppercase mb-4 block font-semibold">
             {isJa ? "ブログ" : "Blogs"}

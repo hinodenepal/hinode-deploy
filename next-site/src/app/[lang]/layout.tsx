@@ -78,7 +78,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navigation locale={locale} />
-      <main className="flex-grow pt-[72px]">{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer locale={locale} />
       <LanguageToggle locale={locale} />
     </>
